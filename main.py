@@ -1,4 +1,8 @@
 import requests
+from colorama import Fore
+
+fg = Fore.GREEN
+fr = Fore.RED
 
 def make_request(url):
     try:
@@ -14,6 +18,6 @@ with open(input("Enter a list: "),"r",encoding="utf-8") as domain_list:
         url = "http://" + word
         response = make_request(url)
         if response and response.status_code == 200:
-            print(f"yea -> {url}")
+            print(Fore.GREEN + "yea ->" + url)
         else:
-            print(f"nope -> {url}")
+            print(Fore.RED + "nope ->" + url)
